@@ -1,0 +1,26 @@
+{% extends "driver/base.html" %}
+
+{% block content %}
+
+    <div class="text-center mt-5 pt-5" >
+    <img src="https://icon-library.com/images/success-icon/success-icon-0.jpg" class="img-fluid" style="height:200px"> 
+    <h2 class="mt-5">Thank You Payment has been received</h2> 
+    </div>
+    <div class="stars"> <h2 class="mt-4">How would you Rate your Ride?</h2></div>
+    <div>
+  <form action="{% url 'feedbackform' %}">
+    <input class="star star-5" id="star-5" type="radio" name="star"/>
+    <label class="star star-5" for="star-5"></label>
+    <input class="star star-4" id="star-4" type="radio" name="star"/>
+    <label class="star star-4" for="star-4"></label>
+    <input class="star star-3" id="star-3" type="radio" name="star"/>
+    <label class="star star-3" for="star-3"></label>
+    <input class="star star-2" id="star-2" type="radio" name="star"/>
+    <label class="star star-2" for="star-2"></label>
+    <input class="star star-1" id="star-1" type="radio" name="star"/>
+    <label class="star star-1" for="star-1"></label>
+  </form>
+    <a href="{% url 'feedbackform' %}"> <button type="text" class="btn btn-primary">FeedBack Form</button></a>
+</div>
+
+{% endblock %}

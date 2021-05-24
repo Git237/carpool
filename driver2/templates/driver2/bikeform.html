@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bike form</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+<!new!>
+    <link rel="shortcut icon" href="favicon.ico">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="{% static './css/animate.css' %}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{% static './css/icomoon.css' %}">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="{% static './css/bootstrap.css' %}">
+	<!-- Superfish -->
+	<link rel="stylesheet" href="{% static './css/superfish.css' %}">
+
+	<link rel="stylesheet" href="{% static './css/style.css' %}">
+
+    <style>
+      html, body {
+      min-height: 100%;
+      padding: 0;
+      margin: 0;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      }
+      h1 {
+      margin: 0 0 20px;
+      font-weight: 400;
+      color: #1c87c9;
+      }
+      p {
+      margin: 0 0 5px;
+      }
+      .main-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #1c87c9;
+      }
+      form {
+      padding: 25px;
+      margin: 25px;
+      box-shadow: 0 2px 5px #f5f5f5; 
+      background: #f5f5f5; 
+      }
+      .fas {
+      margin: 25px 10px 0;
+      font-size: 120px;
+      color: #fff;
+      }
+      .fa-bicycle {
+      transform: rotate(-20deg);
+      }
+      .fa-car , .fa-truck{
+      transform: rotate(10deg);
+      }
+      input, textarea {
+      width: calc(100% - 18px);
+      padding: 8px;
+      margin-bottom: 20px;
+      border: 1px solid #1c87c9;
+      outline: none;
+      }
+      input::placeholder {
+      color: #666;
+      }
+      button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background: #1c87c9; 
+      font-size: 16px;
+      font-weight: 400;
+      color: #fff;
+      }
+      button:hover {
+      background: #2371a0;
+      }    
+      @media (min-width: 568px) {
+      .main-block {
+      flex-direction: row;
+      }
+      .left-part, form {
+      width: 50%;
+      }
+      .fa-bicycle {
+      margin-top: 0;
+      margin-left: 20%;
+      }
+      .fa-car {
+      margin-top: -10%;
+      margin-left: 65%;
+      }
+      .fa-truck {
+      margin-top: 2%;
+      margin-left: 34%;
+      }
+      }
+    </style>
+  </head>
+  <body>
+  <header id="fh5co-header-section">
+				<div class="container">
+					<div class="nav-header">
+						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+						<h1 id="fh5co-logo"><a href="#">Gimmie<span>Ride</span></a></h1>
+  <nav id="fh5co-menu-wrap" role="navigation">
+							<ul class="sf-menu" id="fh5co-primary-menu">
+								<li class="active">
+									<a href="ddashboard.html">Dashboard</a>
+								</li>
+								<li>
+									<a href="#" class="fh5co-sub-ddown">Offer Ride</a>
+									 <ul class="fh5co-sub-menu">
+									 	<li><a href="{% url 'carform' %}">Car</a></li>
+									 	<li><a href="{% url 'bikeform' %}">Bike</a></li>
+                    <li><a href="#">Truck</a></li>
+
+                  </ul>
+                  </nav>
+                  </div>
+				</div>
+			</header>	
+    <div class="main-block">
+      <div class="left-part">
+        <i class="fas fa-bicycle" style='color:red'></i>
+        <i class="fas fa-car"></i>
+        <i class="fas fa-truck"></i>
+      </div>
+      <form method="POST" action="" enctype="multipart/form-data">
+		    {% csrf_token %}
+        <h1>Offer ride(Two-wheeler)</h1>
+        <div class="info">
+          {{form}}
+        </div>
+        <button type="submit" onclick="SubmitForm" href="/">Submit</button>
+      </form>
+      <script type="text/javascript">
+        function SubmitForm()
+        {
+          alert("Adding Succesful!");
+        }
+      </script>
+      <div class="info">
+      {{form.errors}}
+      </div>
+    </div>
+  </body>
+</html>
