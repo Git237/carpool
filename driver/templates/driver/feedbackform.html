@@ -144,14 +144,19 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
-    <form method="post" action="" >
+    <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+
 <div style="max-width: 400px;">
 </div>
-
+        <div class="info">
+          {{form}}
+        </div>
 </div><div style="padding-bottom: 18px;">Clean Car<br/>
 <select id="data_7" name="data_7" style="max-width : 500px;" class="form-control"><option>yes</option>
 <option>No</option>
 </select>
+{{form.clean_car}}
 </div>
 <div style="padding-bottom: 18px;">Condition Of Seat Covers<br/>
 <select id="data_9" name="data_9" style="max-width : 500px;" class="form-control"><option>Very good</option>
@@ -160,6 +165,7 @@
 <option>Poor</option>
 <option>Very poor</option>
 </select>
+{{form.condition_of_seats}}
 </div>
 <div style="padding-bottom: 18px;">Behaviour of Driver<br/>
 <select id="data_10" name="data_10" style="max-width : 500px;" class="form-control"><option>Very good</option>
@@ -168,6 +174,7 @@
 <option>Poor</option>
 <option>Very poor</option>
 </select>
+{{form.Behaviour_of_Driver}}
 </div>
 <div style="padding-bottom: 18px;">Driving Skills<br/>
 <select id="data_11" name="data_11" style="max-width : 500px;" class="form-control"><option>Very good</option>
@@ -176,6 +183,7 @@
 <option>Poor</option>
 <option>Very poor</option>
 </select>
+{{form.Driving_Skills}}
 </div>
 <div style="padding-bottom: 18px;">Level of comfort<br/>
 <select id="data_12" name="data_12" style="max-width : 500px;" class="form-control"><option>Very good</option>
@@ -184,17 +192,22 @@
 <option>Poor</option>
 <option>Very poor</option>
 </select>
+{{form.Level_of_comfort}}
 </div>
 <div style="padding-bottom: 18px;">Would you recommend this platform to others?<br/>
 <select id="data_8" name="data_8" style="max-width : 500px;" class="form-control"><option>Yes</option>
 <option>No</option>
 <option>Not sure</option>
 </select>
+{{form.recommend}}
 </div>
 
 <button id="submitForm">Submit</button>
 
 </form>
+    <div class="info">
+        {{form.errors}}
+    </div>
                             </div>
                         </div>
                     </div>

@@ -7,8 +7,8 @@ from django.contrib.auth.decorators import login_required
 from driver2.models import Carformmodel, Bikeformmodel,  TruckformModel
 from driver2.forms import CarformmodelForm, BikeformmodelForm, TruckformmodelForm
 from django.contrib.auth import authenticate, login, logout
-from .models import coffee
-from .forms import CustomUser
+from .models import coffee, feedbackmodel
+from .forms import CustomUser, feedbackmodelform
 import razorpay
 from django.views.decorators.csrf import csrf_exempt
 from .filters import Carformfilter, Bikeformfilter,  Truckformfilter
@@ -124,4 +124,11 @@ def success(request):
 
 
 def feedbackform(request):
+    form = feedbackmodelform()
+    if request.method == 'POST':
+        form = feedbackmodelform(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+
+    context = {'form':form}
     return render(request, 'driver/feedbackform.html')

@@ -68,7 +68,7 @@ def bikeform(request):
         form = BikeformmodelForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-
+            
     context = {'form':form}
     return render(request, 'driver2/bikeform.html',context)
 
